@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+set -o errexit
+
+readonly VER=v$(cat VERSION)
+
+/usr/bin/git tag "$VER" || true
+/usr/bin/git push origin "$VER"

@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+set -o errexit
+
+readonly REPO="shellbro/cicd-kubectl"
+readonly TAG=$(cat VERSION)
+
+/usr/bin/docker pull "$REPO"
+/usr/bin/docker tag "$REPO" "$REPO:$TAG"
+/usr/bin/docker push "$REPO:$TAG"
