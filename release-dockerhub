@@ -2,7 +2,7 @@
 
 set -o errexit
 
-readonly REPO="shellbro/cicd-kubectl"
+readonly REPO="shellbro/cicd-k8s-tools"
 readonly TAG=$(cat VERSION)
 
 /usr/bin/docker pull "$REPO"
