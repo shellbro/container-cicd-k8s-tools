@@ -5,5 +5,5 @@ COPY install-kustomize /tmp
 
 RUN yum -y makecache fast && yum install -y kubectl && yum clean all &&\
     >&2 kubectl version --client --short &&\
-    /tmp/install-kustomize && /usr/bin/rm /tmp/install-kustomize &&\
+    /tmp/install-kustomize && rm /tmp/install-kustomize &&\
     >&2 kustomize version --short

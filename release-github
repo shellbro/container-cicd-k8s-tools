@@ -3,8 +3,8 @@
 set -o nounset
 set -o errexit
 
-readonly VER=v$(cat VERSION)
+readonly VER="v$(cat VERSION)"
 
-/usr/bin/git pull
+/usr/bin/git pull origin master
 /usr/bin/git tag "$VER" || true
 /usr/bin/git push origin "$VER"

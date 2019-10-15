@@ -4,8 +4,8 @@ set -o nounset
 set -o errexit
 
 readonly REPO="shellbro/cicd-k8s-tools"
-readonly TAG=$(cat VERSION)
+readonly TAG="$(cat VERSION)"
 
-/usr/bin/docker pull "$REPO"
-/usr/bin/docker tag "$REPO" "$REPO:$TAG"
+/usr/bin/docker pull "$REPO:latest"
+/usr/bin/docker tag "$REPO:latest" "$REPO:$TAG"
 /usr/bin/docker push "$REPO:$TAG"
