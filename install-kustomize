@@ -14,4 +14,4 @@ readonly OS=linux
   /usr/bin/xargs /usr/bin/curl --location --remote-name
 
 /usr/bin/mv kustomize_kustomize\.v*_${OS}_amd64 /usr/local/bin/kustomize
-/usr/bin/chmod u+x /usr/local/bin/kustomize
+/usr/bin/chmod a+x /usr/local/bin/kustomize
