@@ -7,7 +7,8 @@ ARG LOGIN=user
 COPY kubernetes.repo /etc/yum.repos.d
 COPY install-kustomize /tmp
 
-RUN yum -y makecache fast && yum install -y kubectl && yum clean all &&\
+RUN yum -y makecache fast && yum -y install gettext kubectl &&\
+    yum clean all &&\
     >&2 kubectl version --client --short &&\
     /tmp/install-kustomize && rm /tmp/install-kustomize &&\
     >&2 kustomize version --short &&\
