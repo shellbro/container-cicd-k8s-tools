@@ -4,4 +4,4 @@
 
 Container image with Kubernetes tools for use in CI/CD pipelines.
 
-Contains `kubectl` and `kustomize` tools.
+Contains `kubectl`, `kustomize` and `envsubst`.
