@@ -12,7 +12,8 @@ RUN yum -y makecache fast && yum -y install gettext kubectl &&\
     >&2 rpm -q kubectl &&\
     /tmp/install-kustomize && rm /tmp/install-kustomize &&\
     >&2 kustomize version --short &&\
-    groupadd -g $GID $LOGIN && useradd -u $UID -g $GID $LOGIN
+    groupadd -g $GID $LOGIN && useradd -u $UID -g $GID $LOGIN &&\
+    mkdir /repo && chown $LOGIN:$LOGIN /repo
 
 USER $LOGIN
 WORKDIR /home/$LOGIN
