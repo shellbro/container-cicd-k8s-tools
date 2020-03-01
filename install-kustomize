@@ -1,21 +1,20 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-set -o nounset
-set -o pipefail
 set -o errexit
+set -o pipefail
+set -o nounset
 
-readonly OS=linux
+readonly os=linux
 
-/usr/bin/curl --silent\
-  https://api.github.com/repos/kubernetes-sigs/kustomize/releases |\
-  /usr/bin/grep browser_download |\
-  /usr/bin/grep "$OS" |\
-  /usr/bin/cut --delimiter='"' --field=4 |\
-  /usr/bin/grep /kustomize/v |\
-  /usr/bin/sort |\
-  /usr/bin/tail -n 1 |\
-  /usr/bin/xargs /usr/bin/curl --location --remote-name
+curl -s https://api.github.com/repos/kubernetes-sigs/kustomize/releases |\
+  grep browser_download |\
+  grep "$os" |\
+  cut -d '"' -f 4 |\
+  grep /kustomize/v |\
+  sort |\
+  tail -n 1 |\
+  xargs curl -LO
 
-/usr/bin/tar xzf kustomize_v*_${OS}_amd64.tar.gz
-/usr/bin/mv kustomize /usr/local/bin/kustomize
-/usr/bin/rm kustomize_v*_${OS}_amd64.tar.gz
+tar -xzf kustomize_v*_${os}_amd64.tar.gz
+mv kustomize /usr/local/bin/kustomize
+rm kustomize_v*_${os}_amd64.tar.gz
