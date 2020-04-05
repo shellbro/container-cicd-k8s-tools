@@ -1,4 +1,4 @@
-FROM shellbro/centos:7.7.1908-1582981332
+FROM shellbro/centos:7.7.1908-1586072925
 
 COPY kubernetes.repo /etc/yum.repos.d
 COPY install-kustomize /tmp
